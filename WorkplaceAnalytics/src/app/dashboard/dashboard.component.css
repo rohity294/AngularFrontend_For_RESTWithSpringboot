@@ -1,0 +1,36 @@
+
+.container{
+  background-color: rgb(255, 115, 0);
+}
+
+.header{
+  background-color: rgb(255, 115, 0);
+}
+
+.main{
+  background-color: rgb(255, 115, 0);
+}
+
+.flexbox-container{
+  background-color: skyblue;
+  /* min-height: 100vh; */
+  min-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.action-elements{
+  /* background-color:lightcoral; */
+  flex-basis: 20%;
+}
+
+.action-element{
+  background-color:none;
+}
+
+.display{
+  /* background-color: turquoise; */
+  flex-basis: 80%;
+}
+

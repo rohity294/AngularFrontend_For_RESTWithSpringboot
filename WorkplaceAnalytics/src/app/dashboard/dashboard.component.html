@@ -1,0 +1,114 @@
+<!-- <div class="container">
+  <h2 style="margin-top: 60px; text-align: center">Workplace Analytics</h2>
+
+  <button type="button" class="btn btn-outline-primary" (click)="showAllEmployees()">
+    Show all Employees
+  </button>
+
+  <div>
+    <form #dashboardForm="ngForm" style="margin-top: 20px" (ngSubmit)="showEmpById()">
+      <div class="form-group">
+        <label for="empId">Enter employee id to search</label>
+        <input type="text" class="form-control" id="empId" placeholder="Enter employee id to search" name="empId"
+          style="max-width:250px;"
+          [(ngModel)]="passedEmpId" />
+      </div>
+      <button type="submit" class="btn btn-info" style="margin-top: 20px">
+        Submit
+      </button>
+    </form>
+  </div>
+
+</div>
+
+<div>
+  <li *ngFor="let user of users">{{ user.name }}</li>
+</div>
+
+<div *ngIf="isUserFetched">
+  {{this.fetchedUser.id}}
+  {{this.fetchedUser.name}}
+  {{this.fetchedUser.age}}
+  {{this.fetchedUser.salary}}
+  {{this.fetchedUser.departmentId}}
+</div>
+
+ -->
+
+<div class="container">
+  <div class="header">
+    <h2 style="margin: 40px; text-align: center">Workplace Analytics</h2>
+  </div>
+  <div class="main">
+    <div class="flexbox-container">
+      <div class="action-elements">
+        <div class="action-element">
+          <button
+            type="button"
+            style="background-color: black;color: white;"
+            class="btn btn-outline-primary"
+            (click)="showAllEmployees()"
+          >
+            Show All Employees
+          </button>
+        </div>
+        <div class="action-element">
+          <form #dashboardForm="ngForm" style="margin-top: 20px" (ngSubmit)="showEmpById()">
+            <div class="form-group">
+              <label for="empId">Enter employee id to search</label>
+              <input type="text" class="form-control" id="empId" placeholder="Enter employee id to search" name="empId"
+                style="max-width:250px;"
+                [(ngModel)]="passedEmpId" />
+            </div>
+            <button type="submit" class="btn btn-info" style="margin-top: 20px">
+              Submit
+            </button>
+          </form>
+        </div>
+        <div class="action-element">
+          <form #dashboardForm="ngForm" style="margin-top: 20px" (ngSubmit)="addEmployee()">
+            <div class="form-group">
+              <label for="empId">Add Employee Details</label>
+              <input type="text" class="form-control" id="newEmpName" placeholder="name" name="newEmpName" style="max-width:250px;" [(ngModel)]="newEmpName" />
+              <input type="text" class="form-control" id="newEmpAge" placeholder="age" name="newEmpAge" style="max-width:250px;" [(ngModel)]="newEmpAge" />
+              <input type="text" class="form-control" id="newEmpSalary" placeholder="salary" name="newEmpSalary" style="max-width:250px;" [(ngModel)]="newEmpSalary" />
+              <input type="text" class="form-control" id="newEmpDepartmentId" placeholder="Department Id" name="newEmpDepartmentId" style="max-width:250px;" [(ngModel)]="newEmpDepartmentId" />
+            </div>
+            <button type="submit" class="btn btn-info" style="margin-top: 20px">
+              Submit
+            </button>
+          </form>
+        </div>
+        <div class="action-element">
+          <form #dashboardForm="ngForm" style="margin-top: 20px" (ngSubmit)="deleteEmployeeById()">
+            <div class="form-group">
+              <label for="empId">Enter employee id to delete</label>
+              <input type="text" class="form-control" id="empIdToDelete" placeholder="Enter employee id to delete" name="empIdToDelete"
+                style="max-width:250px;"
+                [(ngModel)]="passedEmpIdToDelete" />
+            </div>
+            <button type="submit" class="btn btn-info" style="margin-top: 20px">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="display" *ngIf="!isUserFetched">
+          <li *ngFor="let user of users">
+            {{ user.userId }}
+            {{ user.userName }}
+            {{ user.userAge }}
+            {{ user.userSalary }}
+            {{ user.userDepartmentId }}
+          </li>
+      </div>
+      <div *ngIf="isUserFetched">
+        {{this.fetchedUser.userId}}
+        {{this.fetchedUser.userName}}
+        {{this.fetchedUser.userAge}}
+        {{this.fetchedUser.userSalary}}
+        {{this.fetchedUser.userDepartmentId}}
+      </div>
+    </div>
+  </div>
+</div>
